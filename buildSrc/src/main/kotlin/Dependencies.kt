@@ -1,6 +1,7 @@
 import Dependencies.Versions.activityXVersion
 import Dependencies.Versions.androidGradleVersion
 import Dependencies.Versions.appCompatVersion
+import Dependencies.Versions.constraintLayoutVersion
 import Dependencies.Versions.coroutineVersion
 import Dependencies.Versions.daggerVersion
 import Dependencies.Versions.espressoVersion
@@ -8,26 +9,27 @@ import Dependencies.Versions.fragmentXVersion
 import Dependencies.Versions.junitVersion
 import Dependencies.Versions.kotlinVersion
 import Dependencies.Versions.materialVersion
+import Dependencies.Versions.picassoVersion
 import Dependencies.Versions.retrofitVersion
 import Dependencies.Versions.runnerVersion
 
 object Dependencies {
 
     object Android {
-        val minSdkVersion = 24
-        val targetSdkVersion = 31
-        val compileSdkVersion = 31
-        val applicationId = "com.adhishlal.mygithubprs"
-        val versionCode = 1
-        val versionName = "1.0.0"
+        const val minSdkVersion = 24
+        const val targetSdkVersion = 31
+        const val compileSdkVersion = 31
+        const val applicationId = "com.adhishlal.mygithubprs"
+        const val versionCode = 1
+        const val versionName = "1.0.0"
     }
 
     object BaseURLs {
-        val gitHubBaseURL = "https://api.github.com/"
+        const val gitHubBaseURL = "https://api.github.com/"
     }
 
     object Authorization {
-        val authToken = "token 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"
+        const val authToken = "token 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"
     }
 
     object Versions {
@@ -56,6 +58,12 @@ object Dependencies {
         // androidx version
         const val fragmentXVersion = "1.5.1"
         const val activityXVersion = "1.5.1"
+
+        // picasso version
+        const val picassoVersion = "2.71828"
+
+        // constraint layout version
+        const val constraintLayoutVersion = "2.1.4"
     }
 
     object Kotlin {
@@ -68,36 +76,46 @@ object Dependencies {
     }
 
     object SupportLibs {
-        val appcompat = "androidx.appcompat:appcompat:$appCompatVersion"
+        const val appcompat = "androidx.appcompat:appcompat:$appCompatVersion"
 
         // material library
-        val material = "com.google.android.material:material:$materialVersion"
+        const val material = "com.google.android.material:material:$materialVersion"
+
+        // constraint layout
+        const val constraintLayout =
+            "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
 
         // retrofit
-        val retrofit = "com.squareup.retrofit2:retrofit:$retrofitVersion"
+        const val retrofit = "com.squareup.retrofit2:retrofit:$retrofitVersion"
+        const val retrofitConvertor = "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+        const val retrofitScalars = "com.squareup.retrofit2:converter-scalars:$retrofitVersion"
+        const val retrofitRx = "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion"
 
         // interceptor
-        val loggingInterceptor = "com.squareup.okhttp3:logging-interceptor:3.9.0"
+        const val loggingInterceptor = "com.squareup.okhttp3:logging-interceptor:3.9.0"
 
         // dagger2
-        val dagger = "com.google.dagger:dagger:$daggerVersion"
-        val daggerCompiler = "com.google.dagger:dagger-compiler:$daggerVersion"
-        val daggerAndroidSupport = "com.google.dagger:dagger-android-support:$daggerVersion"
-        val daggerProcessor = "com.google.dagger:dagger-android-processor:$daggerVersion"
+        const val dagger = "com.google.dagger:dagger:$daggerVersion"
+        const val daggerCompiler = "com.google.dagger:dagger-compiler:$daggerVersion"
+        const val daggerAndroidSupport = "com.google.dagger:dagger-android-support:$daggerVersion"
+        const val daggerProcessor = "com.google.dagger:dagger-android-processor:$daggerVersion"
 
         // coroutines
-        val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutineVersion"
-        val coroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutineVersion"
+        const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutineVersion"
+        const val coroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutineVersion"
 
         // androidx
-        val fragmentx = "androidx.fragment:fragment-ktx:$fragmentXVersion"
-        val activityx = "androidx.activity:activity-ktx:$activityXVersion"
+        const val fragmentx = "androidx.fragment:fragment-ktx:$fragmentXVersion"
+        const val activityx = "androidx.activity:activity-ktx:$activityXVersion"
+
+        // picasso
+        const val picasso = "com.squareup.picasso:picasso:$picassoVersion"
     }
 
     object TestLibs {
-        val junit = "junit:junit:$junitVersion"
-        val espresso = "androidx.test.espresso:espresso-core:$espressoVersion"
-        val runner = "androidx.test:runner:$runnerVersion"
-        val androidTestRunner = "android.support.test.runner.AndroidJUnitRunner"
+        const val junit = "junit:junit:$junitVersion"
+        const val espresso = "androidx.test.espresso:espresso-core:$espressoVersion"
+        const val runner = "androidx.test:runner:$runnerVersion"
+        const val androidTestRunner = "android.support.test.runner.AndroidJUnitRunner"
     }
 }

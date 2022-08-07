@@ -1,8 +1,9 @@
 package com.adhishlal.mygithubprs.presentation.main.view.activities
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import androidx.activity.viewModels
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.adhishlal.mygithubprs.BuildConfig
 import com.adhishlal.mygithubprs.R
@@ -11,14 +12,19 @@ import com.adhishlal.mygithubprs.data.utils.Constants.BLANK
 import com.adhishlal.mygithubprs.databinding.ActivityDashboardBinding
 import com.adhishlal.mygithubprs.presentation.main.view.adapter.RepositoryListAdapter
 import com.adhishlal.mygithubprs.presentation.main.view.base.BaseActivity
+import com.adhishlal.mygithubprs.presentation.main.view.bottomsheets.UserNameBottomSheet
+import com.adhishlal.mygithubprs.presentation.main.viewmodel.GitHubDashboardViewModel
 import com.squareup.picasso.Picasso
 import dagger.android.AndroidInjection
+import javax.inject.Inject
 
 class DashboardActivity : BaseActivity() {
 
     private lateinit var activityDashboardBinding: ActivityDashboardBinding
 
-    private lateinit var myRepositoriesResponseModel: MyRepositoriesResponseModel
+    @Inject
+    lateinit var viewModelFactory: ViewModelProvider.Factory
+    private val gitHubDashboardViewModel: GitHubDashboardViewModel by viewModels { viewModelFactory }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         AndroidInjection.inject(this)
@@ -33,10 +39,8 @@ class DashboardActivity : BaseActivity() {
         callFunctionWithInternetCheck({ fetchMyRepositories() }, this)
 
         activityDashboardBinding.publicUserLayout.setOnClickListener {
-            // todo open this from bottom sheet
-            val intent = Intent(this, PublicRepositoriesActivity::class.java)
-            intent.putExtra("userId", "google")
-            startActivity(intent)
+            val bottomSheet = UserNameBottomSheet()
+            bottomSheet.show(supportFragmentManager, bottomSheet.tag)
         }
 
         activityDashboardBinding.noDataFound.root.setOnClickListener {
@@ -56,17 +60,18 @@ class DashboardActivity : BaseActivity() {
         activityDashboardBinding.versionText.text = version
     }
 
-    private fun loadList() {
+    private fun loadList(myList: ArrayList<MyRepositoriesResponseModel>) {
         activityDashboardBinding.repoList.apply {
             layoutManager = LinearLayoutManager(this@DashboardActivity)
-            adapter = RepositoryListAdapter(myRepositoriesResponseModel)
+            adapter =
+                RepositoryListAdapter(myList)
         }
     }
 
     private fun fetchMyUserData(authToken: String) {
         activityDashboardBinding.progress.visibility = View.VISIBLE
-        gitHubViewModel.getUserData(authToken)
-        gitHubViewModel.userDataResponseLiveData.observe(this) {
+        gitHubDashboardViewModel.getUserData(authToken)
+        gitHubDashboardViewModel.userDataResponseLiveData.observe(this) {
 
             activityDashboardBinding.progress.visibility = View.GONE
 
@@ -86,8 +91,8 @@ class DashboardActivity : BaseActivity() {
 
         activityDashboardBinding.progress.visibility = View.VISIBLE
 
-        gitHubViewModel.getMyRepositories(1)
-        gitHubViewModel.myRepositoriesLiveData.observe(this) {
+        gitHubDashboardViewModel.getMyRepositories(1)
+        gitHubDashboardViewModel.myRepositoriesLiveData.observe(this) {
 
             activityDashboardBinding.progress.visibility = View.GONE
 
@@ -99,28 +104,8 @@ class DashboardActivity : BaseActivity() {
             } else {
                 activityDashboardBinding.repoList.visibility = View.VISIBLE
                 activityDashboardBinding.noDataFound.root.visibility = View.GONE
-                loadList()
+                loadList(it)
             }
-        }
-    }
-
-    private fun fetchPRList(userId: String, repo: String, page: Int) {
-        activityDashboardBinding.progress.visibility = View.VISIBLE
-
-        gitHubViewModel.getPRList(userId, repo, page)
-        gitHubViewModel.prListLiveData.observe(this) {
-
-            activityDashboardBinding.progress.visibility = View.GONE
-        }
-    }
-
-    private fun fetchUserRepositories(userId: String, page: Int) {
-        activityDashboardBinding.progress.visibility = View.VISIBLE
-
-        gitHubViewModel.getUserRepositories(userId, page)
-        gitHubViewModel.userRepositoriesLiveData.observe(this) {
-
-            activityDashboardBinding.progress.visibility = View.GONE
         }
     }
 }

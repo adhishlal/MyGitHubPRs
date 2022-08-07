@@ -4,7 +4,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.adhishlal.mygithubprs.domain.base.GitHubViewModelFactory
 import com.adhishlal.mygithubprs.domain.di.scope.ViewModelKey
-import com.adhishlal.mygithubprs.presentation.main.viewmodel.GitHubViewModel
+import com.adhishlal.mygithubprs.presentation.main.viewmodel.GitHubDashboardViewModel
+import com.adhishlal.mygithubprs.presentation.main.viewmodel.GitHubPublicRepoViewModel
+import com.adhishlal.mygithubprs.presentation.main.viewmodel.GitHubPullRequestsViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
@@ -17,6 +19,16 @@ abstract class GitHubViewModelModule {
 
     @Binds
     @IntoMap
-    @ViewModelKey(GitHubViewModel::class)
-    abstract fun bindGitHubViewModel(viewModel: GitHubViewModel): ViewModel
+    @ViewModelKey(GitHubDashboardViewModel::class)
+    abstract fun bindGitHubDashboardViewModel(viewModel: GitHubDashboardViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(GitHubPublicRepoViewModel::class)
+    abstract fun bindGitHubPublicRepoViewModel(viewModel: GitHubPublicRepoViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(GitHubPullRequestsViewModel::class)
+    abstract fun bindGitHubPullRequestsViewModel(viewModel: GitHubPullRequestsViewModel): ViewModel
 }

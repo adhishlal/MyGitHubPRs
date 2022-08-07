@@ -5,6 +5,7 @@ import android.os.Bundle
 import com.adhishlal.mygithubprs.R
 import com.adhishlal.mygithubprs.databinding.ActivityUnauthorizedBinding
 import com.adhishlal.mygithubprs.presentation.main.view.base.BaseActivity
+import com.adhishlal.mygithubprs.presentation.main.view.bottomsheets.UserNameBottomSheet
 import dagger.android.AndroidInjection
 
 class UnauthorizedActivity : BaseActivity() {
@@ -21,10 +22,8 @@ class UnauthorizedActivity : BaseActivity() {
         unauthorizedActivityBinding.unauthorized.errorText.text = getString(R.string.logged_out)
 
         unauthorizedActivityBinding.publicRepo.setOnClickListener {
-            // todo open this from bottom sheet
-            val intent = Intent(this, PublicRepositoriesActivity::class.java)
-            intent.putExtra("userId","google")
-            startActivity(intent)
+            val bottomSheet = UserNameBottomSheet()
+            bottomSheet.show(supportFragmentManager, bottomSheet.tag)
         }
 
         unauthorizedActivityBinding.login.setOnClickListener {

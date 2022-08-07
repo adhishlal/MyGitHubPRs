@@ -22,11 +22,11 @@ android {
     }
     buildTypes {
 
-        release{
+        release {
             isMinifyEnabled = true
             isDebuggable = false
-            buildConfigField("String","BaseURL", "\"${Dependencies.BaseURLs.gitHubBaseURL}\"" )
-            buildConfigField("String","AuthToken", "\"${Dependencies.Authorization.authToken}\"" )
+            buildConfigField("String", "BaseURL", "\"${Dependencies.BaseURLs.gitHubBaseURL}\"")
+            buildConfigField("String", "AuthToken", "\"${Dependencies.Authorization.authToken}\"")
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -36,8 +36,8 @@ android {
         debug {
             isMinifyEnabled = false
             isDebuggable = true
-            buildConfigField("String","BaseURL", "\"${Dependencies.BaseURLs.gitHubBaseURL}\"")
-            buildConfigField("String","AuthToken", "\"${Dependencies.Authorization.authToken}\"" )
+            buildConfigField("String", "BaseURL", "\"${Dependencies.BaseURLs.gitHubBaseURL}\"")
+            buildConfigField("String", "AuthToken", "\"${Dependencies.Authorization.authToken}\"")
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -65,9 +65,9 @@ dependencies {
 
     // retrofit
     implementation(Dependencies.SupportLibs.retrofit)
-    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
-    implementation("com.squareup.retrofit2:converter-scalars:2.9.0")
-    implementation("com.squareup.retrofit2:adapter-rxjava2:2.9.0")
+    implementation(Dependencies.SupportLibs.retrofitConvertor)
+    implementation(Dependencies.SupportLibs.retrofitScalars)
+    implementation(Dependencies.SupportLibs.retrofitRx)
 
     // coroutines
     implementation(Dependencies.SupportLibs.coroutines)
@@ -78,18 +78,13 @@ dependencies {
     implementation(Dependencies.SupportLibs.activityx)
 
     // picasso
-    implementation("com.squareup.picasso:picasso:2.71828")
+    implementation(Dependencies.SupportLibs.picasso)
 
     // interceptor
     implementation(Dependencies.SupportLibs.loggingInterceptor)
 
-    // material
-    implementation("androidx.appcompat:appcompat:1.4.2")
-    implementation("com.google.android.material:material:1.6.1")
-    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
-
-    // paging
-    implementation("androidx.paging:paging-runtime:3.1.1")
+    // constraint layout
+    implementation(Dependencies.SupportLibs.constraintLayout)
 
     // dagger2
     implementation(Dependencies.SupportLibs.dagger)

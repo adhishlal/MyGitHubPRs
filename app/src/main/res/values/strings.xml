@@ -15,4 +15,7 @@
     <string name="no_internet">"No internet!\nConnect and retry.."</string>
     <string name="user_repositories">%1s Repositories</string>
     <string name="pull_requests">%1s Pull Requests of %1s for repository %1s</string>
+    <string name="enter_username">Enter username</string>
+    <string name="get_repositories">Get Repositories</string>
+    <string name="enter_user_name_to_continue">Please enter an username to continue</string>
 </resources>

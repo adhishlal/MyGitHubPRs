@@ -16,6 +16,7 @@
         <entry key="app/src/main/res/layout/activity_pull_requests.xml" value="0.25427350427350426" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.1243209360635186" />
         <entry key="app/src/main/res/layout/activity_unauthorized.xml" value="0.27489624023437503" />
+        <entry key="app/src/main/res/layout/bottom_sheet_user_name.xml" value="0.25427350427350426" />
         <entry key="app/src/main/res/layout/item_pull_request.xml" value="0.335" />
         <entry key="app/src/main/res/layout/item_repository.xml" value="0.25427350427350426" />
         <entry key="app/src/main/res/layout/layout_error.xml" value="0.1" />

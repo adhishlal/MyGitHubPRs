@@ -18,7 +18,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-class GitHubViewModel @Inject constructor() : BaseViewModel() {
+class GitHubPullRequestsViewModel @Inject constructor() : BaseViewModel() {
 
     @Inject
     lateinit var gitHubUserDataUseCase: GetUserUseCase
