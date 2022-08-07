@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">GitHub PR</string>
+    <string name="welcome_text">welcome, \n%1$s!</string>
+    <string name="app_version">App Version %s</string>
+    <string name="other_public_repository">Other Public Repository</string>
+    <string name="my_closed_pull_requests">My Closed Pull Requests</string>
+    <string name="my_repositories">My Repositories</string>
+    <string name="click_on_any_repository">Click on any repository to see the closed pull requests</string>
+    <string name="try_again">Try Again</string>
+    <string name="no_data_found">Oh no!\nNo data found..\n\nTap me to re-try</string>
+    <string name="public_repositories">Public Repositories</string>
+    <string name="logged_out">"Oh no!\nSeems you have been logged out.\n\nRelax, you can still check some public repositories!"</string>
+    <string name="log_in">Re-authorise</string>
+    <string name="log_out">Logout</string>
+    <string name="no_internet">"No internet!\nConnect and retry.."</string>
+    <string name="user_repositories">%1s Repositories</string>
+    <string name="pull_requests">%1s Pull Requests of %1s for repository %1s</string>
+</resources>

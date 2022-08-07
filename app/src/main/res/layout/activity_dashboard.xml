@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/logout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimens_24dp"
+        android:fontFamily="monospace"
+        android:padding="@dimen/dimens_16sp"
+        android:text="@string/log_out"
+        android:textColor="@color/red"
+        android:textSize="@dimen/dimens_16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimens_80dp"
+        android:alpha=".08"
+        android:src="@drawable/github"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/github_avatar"
+        android:layout_width="@dimen/dimens_80dp"
+        android:layout_height="@dimen/dimens_80dp"
+        android:layout_marginStart="@dimen/dimens_24dp"
+        android:layout_marginTop="@dimen/dimens_80dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/github"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/circleImageView" />
+
+    <TextView
+        android:id="@+id/welcomeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimens_24dp"
+        android:ellipsize="end"
+        android:fontFamily="monospace"
+        android:lines="2"
+        android:text="@string/welcome_text"
+        android:textAllCaps="false"
+        android:textColor="@color/teal_700"
+        android:textSize="@dimen/dimens_24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/github_avatar"
+        app:layout_constraintStart_toEndOf="@id/github_avatar"
+        app:layout_constraintTop_toTopOf="@id/github_avatar" />
+
+    <TextView
+        android:id="@+id/versionText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimens_24dp"
+        android:fontFamily="serif-monospace"
+        android:text="@string/app_version"
+        android:textColor="@color/black"
+        android:textSize="@dimen/dimens_16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <RelativeLayout
+        android:id="@+id/publicUserLayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimens_80dp"
+        android:layout_margin="@dimen/dimens_24dp"
+        android:background="@drawable/background_rounded_corners"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/github_avatar">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/dimens_24dp"
+            android:fontFamily="serif-monospace"
+            android:text="@string/other_public_repository"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dimens_18sp" />
+
+        <ImageView
+            android:layout_width="@dimen/dimens_24dp"
+            android:layout_height="@dimen/dimens_24dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="@dimen/dimens_32dp"
+            android:src="@drawable/ic_baseline_chevron_right_24"
+            app:tint="@color/white" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/myRepos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimens_24dp"
+        android:fontFamily="monospace"
+        android:text="@string/my_repositories"
+        android:textColor="@color/light_red"
+        android:textSize="@dimen/dimens_16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/publicUserLayout" />
+
+    <TextView
+        android:id="@+id/closedPRs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="serif-monospace"
+        android:gravity="center"
+        android:paddingStart="@dimen/dimens_24dp"
+        android:paddingEnd="@dimen/dimens_24dp"
+        android:text="@string/click_on_any_repository"
+        android:textColor="@color/dark_grey"
+        android:textSize="@dimen/dimens_14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/myRepos" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/repoList"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimens_420dp"
+        android:layout_marginStart="@dimen/dimens_24dp"
+        android:layout_marginTop="@dimen/dimens_24dp"
+        android:layout_marginEnd="@dimen/dimens_24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/closedPRs"
+        tools:itemCount="10"
+        tools:listitem="@layout/item_repository" />
+
+    <include
+        android:id="@+id/noDataFound"
+        layout="@layout/layout_error"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/versionText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/closedPRs" />
+
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
