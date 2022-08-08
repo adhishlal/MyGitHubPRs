@@ -5,7 +5,7 @@ Download and install to explore!
 
 <img width="319" alt="demo" src="https://user-images.githubusercontent.com/110488747/183308531-10878ff1-80a2-4ec2-a76e-2700de8264b0.png">
 <img width="319" alt="repos" src="https://user-images.githubusercontent.com/110488747/183308686-d987a541-5bbd-45e5-9ee5-9898fefc66cb.png">
-![Screenshot_20220809_005747](https://user-images.githubusercontent.com/110488747/183500360-76a741bd-3364-4b9b-8e1b-88a189ee62a3.png)
+<img width="319" alt="prs" src="https://user-images.githubusercontent.com/110488747/183500360-76a741bd-3364-4b9b-8e1b-88a189ee62a3.png">
 
 
 APK Link : https://drive.google.com/drive/folders/1NONKl9Qr-siTgZ_c5Zc6mK9PJz6YrkRW?usp=sharing
