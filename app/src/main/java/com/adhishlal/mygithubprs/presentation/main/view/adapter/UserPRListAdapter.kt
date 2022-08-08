@@ -7,6 +7,7 @@ import com.adhishlal.mygithubprs.R
 import com.adhishlal.mygithubprs.data.model.response.UserPullRequestsResponseModel
 import com.adhishlal.mygithubprs.databinding.ItemPullRequestBinding
 import com.adhishlal.mygithubprs.domain.base.App.Companion.context
+import com.adhishlal.mygithubprs.domain.utils.DateUtils
 import com.squareup.picasso.Picasso
 
 class UserPRListAdapter(private var prList: ArrayList<UserPullRequestsResponseModel>) :
@@ -26,8 +27,19 @@ class UserPRListAdapter(private var prList: ArrayList<UserPullRequestsResponseMo
         RecyclerView.ViewHolder(itemBinding.root) {
         fun bind(myRepository: UserPullRequestsResponseModel) {
             itemBinding.prTitle.text = myRepository.title
-            itemBinding.prCreatedOn.text = myRepository.created_at
-            itemBinding.prClosedOn.text = myRepository.closed_at
+
+            itemBinding.prCreatedOn.text = String.format(
+                context.resources.getString(
+                    R.string.opened_on_date,
+                    DateUtils.tzToDateString(myRepository.created_at)
+                )
+            )
+            itemBinding.prClosedOn.text = String.format(
+                context.resources.getString(
+                    R.string.opened_on_date,
+                    DateUtils.tzToDateString(myRepository.closed_at)
+                )
+            )
             itemBinding.prStatus.text = myRepository.state
             Picasso.get()
                 .load(myRepository.user.avatar_url)

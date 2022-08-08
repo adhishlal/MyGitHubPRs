@@ -18,4 +18,6 @@
     <string name="enter_username">Enter username</string>
     <string name="get_repositories">Get Repositories</string>
     <string name="enter_user_name_to_continue">Please enter an username to continue</string>
+    <string name="opened_on_date">Opened on %1s</string>
+    <string name="closed_on_date">Closed on %1s</string>
 </resources>
