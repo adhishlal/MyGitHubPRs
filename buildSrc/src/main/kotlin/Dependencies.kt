@@ -29,7 +29,7 @@ object Dependencies {
     }
 
     object Authorization {
-        const val authToken = "token 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"
+        const val authToken = "token ghp_Az8WU"
     }
 
     object Versions {
